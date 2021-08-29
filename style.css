@@ -21,7 +21,7 @@ body {
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.5);
   min-height: 50vh;
-  min-width: 500px;
+  width: 500px;
   padding: 50px;
   margin-top: 3rem;
   border-radius: 25px;
@@ -108,7 +108,7 @@ body {
   }
   .box {
     margin: 1rem;
-    min-width: auto;
+    width: auto;
     padding: 30px;
   }
   .control-icon {
