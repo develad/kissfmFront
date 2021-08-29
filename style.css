@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1)),
+    url('./assets/kissbg.jpg');
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-top: 4rem;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+.box {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.5);
+  min-height: 50vh;
+  min-width: 500px;
+  padding: 50px;
+  margin-top: 3rem;
+  border-radius: 25px;
+  backdrop-filter: blur(4px);
+  border: 5px solid white;
+  box-shadow: 5px -5px greenyellow;
+}
+.box h2 {
+  padding-bottom: 0.5rem;
+  border-bottom: 5px solid white;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+.box h1 {
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.box img {
+  width: 100%;
+  margin: 1rem auto 0 auto;
+  box-shadow: 5px -5px orchid;
+  border-radius: 10px;
+  max-width: 500px;
+}
+.box a {
+  width: 100%;
+  text-align: end;
+  margin-bottom: 5rem;
+}
+.control-icon {
+  position: absolute;
+  left: 50px;
+  bottom: 20px;
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  cursor: pointer;
+}
+#youtube-icon {
+  all: unset;
+  height: 65px;
+  width: 65px;
+}
+
+#equ {
+  all: unset;
+  height: 2.8rem;
+  position: absolute;
+  bottom: 22px;
+  left: 130px;
+  display: none;
+}
+
+.spin {
+  animation: rotate 0.5s ease;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.outter-box {
+  position: relative;
+}
+
+#cat {
+  position: absolute;
+  bottom: 10px;
+  right: 40px;
+  width: 150px;
+  transform: rotate(5deg);
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    justify-content: space-evenly;
+    padding-top: 1rem;
+    background-size: cover;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .box {
+    margin: 1rem;
+    min-width: auto;
+    padding: 30px;
+  }
+  .control-icon {
+    bottom: 40px;
+  }
+  #equ {
+    bottom: 40px;
+  }
+  #logo {
+    margin-bottom: 1rem;
+  }
+
+  #cat {
+    bottom: 25px;
+    width: 130px;
+  }
+}
+
+@media screen and (max-width: 355px) {
+  #cat {
+    bottom: 30px;
+    width: 100px;
+  }
+}
