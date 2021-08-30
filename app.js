@@ -1,4 +1,5 @@
 const box = document.querySelector('.box');
+const a = document.querySelector('a');
 const controlIcon = document.querySelector('.control-icon');
 
 const getSong = async () => {
@@ -9,7 +10,11 @@ const getSong = async () => {
             <h1 id="song">${data.song}</h1>
             <h3 id="singer">${data.singer}</h3>
             <img id="songImg" src="${data.thumbnail}"/>
-            <a href="${data.videoLink}" target="_blank"><img src="./assets/youtubeBtn.png" id="youtube-icon"/></a>
+            ${
+              data.videoLink === '#'
+                ? '<div style="margin-bottom:4rem;"></div>'
+                : `<a href="${data.videoLink}" target="_blank"><img src="./assets/youtubeBtn.png" id="youtube-icon"/></a>`
+            }
         `;
 };
 
