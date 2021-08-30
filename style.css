@@ -82,6 +82,13 @@ body {
   animation: rotate 0.5s ease;
 }
 
+#spinner {
+  all: unset;
+  width: 220px;
+  margin: 0 auto;
+  height: 220px;
+  margin-bottom: 4rem;
+}
 @keyframes rotate {
   to {
     transform: rotate(360deg);
@@ -103,7 +110,8 @@ body {
   body {
     justify-content: space-evenly;
     padding-top: 1rem;
-    background-size: cover;
+    background-size: 150% 180%;
+    background-position-y: bottom;
     -webkit-tap-highlight-color: transparent;
   }
   .box {
