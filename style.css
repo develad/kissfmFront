@@ -8,6 +8,7 @@ body {
   min-height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1)),
     url('./assets/kissbg.jpg');
+  background-size: 100% 100%;
   color: white;
   display: flex;
   align-items: center;
