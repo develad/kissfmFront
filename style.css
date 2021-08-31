@@ -113,8 +113,6 @@ body > div > div > a:nth-child(5) {
   body {
     justify-content: space-evenly;
     padding-top: 1rem;
-    background-size: 150% 180%;
-    background-position-y: bottom;
     -webkit-tap-highlight-color: transparent;
   }
   .box {
