@@ -9,7 +9,9 @@ const getSong = async () => {
             <h2>Now Playing:</h2>
             <h1 id="song">${data.song}</h1>
             <h3 id="singer">${data.singer}</h3>
+            <a href="${data.videoLink}" target="_blank">
             <img id="songImg" src="${data.thumbnail}"/>
+            </a>
             ${
               data.videoLink === '#'
                 ? '<div style="margin-bottom:4rem;"></div>'
