@@ -1,6 +1,7 @@
 const box = document.querySelector('.box');
 const a = document.querySelector('a');
 const controlIcon = document.querySelector('.control-icon');
+const videoLink = document.querySelector('.videoLink');
 
 const getSong = async () => {
   const res = await fetch('https://dagbareshet.herokuapp.com/kissfm');
@@ -9,15 +10,34 @@ const getSong = async () => {
             <h2>Now Playing:</h2>
             <h1 id="song">${data.song}</h1>
             <h3 id="singer">${data.singer}</h3>
-            <a href="${data.videoLink}" target="_blank">
+            ${
+              data.videoLink === '#'
+                ? `<img id="songImg" src="${data.thumbnail}"/>`
+                : `<a href="${data.videoLink}" target="_blank" class="videoLink">
             <img id="songImg" src="${data.thumbnail}"/>
-            </a>
+            </a>`
+            }
             ${
               data.videoLink === '#'
                 ? '<div style="margin-bottom:4rem;"></div>'
-                : `<a href="${data.videoLink}" target="_blank"><img src="./assets/youtubeBtn.png" id="youtube-icon"/></a>`
+                : `<a class="videoLink" href="${data.videoLink}" target="_blank"><img src="./assets/youtubeBtn.png" id="youtube-icon"/></a>`
             }
         `;
+  if (data.videoLink !== '#') {
+    const videoLink = document.querySelector('.videoLink');
+    videoLink.addEventListener('click', () => {
+      if (isPlaying === true) {
+        radio.pause();
+        isPlaying = !isPlaying;
+        controlIcon.innerHTML = `<i class="far fa-play-circle" id="stop"></i>`;
+        controlIcon.classList.add('spin');
+        equ.style.display = 'none';
+        setTimeout(() => {
+          controlIcon.classList.remove('spin');
+        }, 500);
+      }
+    });
+  }
 };
 
 getSong();
