@@ -133,6 +133,9 @@ body > div > div > a:nth-child(5) {
     bottom: 25px;
     width: 130px;
   }
+  .box img {
+    margin-bottom: 2rem;
+  }
 }
 
 @media screen and (max-width: 355px) {
