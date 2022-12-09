@@ -4,7 +4,8 @@ const controlIcon = document.querySelector('.control-icon');
 const videoLink = document.querySelector('.videoLink');
 
 const getSong = async () => {
-  const res = await fetch('https://dagbareshet.herokuapp.com/kissfm');
+  // const res = await fetch('https://dagbareshet.herokuapp.com/kissfm');
+  const res = await fetch('https://dark-gray-snail-ring.cyclic.app/kissfm');
   const data = await res.json();
   box.innerHTML = `
             <h2>Now Playing:</h2>
