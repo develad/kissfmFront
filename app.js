@@ -41,7 +41,7 @@ const getSong = async () => {
 };
 
 getSong();
-setInterval(getSong, 1000 * 30);
+setInterval(getSong, 1000 * 10);
 
 let isPlaying = false;
 const radio = new Audio('https://online.kissfm.ua/KissFM_Digital_HD');
