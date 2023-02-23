@@ -2,9 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="icon" href="./assets/kissFmfavicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="style.css" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <link
+      rel="icon"
+      href="./assets/kissFmfavicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="style.css"
+    />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1"
@@ -19,22 +29,62 @@
     <title>KissFm - by Elad Bar</title>
   </head>
   <body>
-    <img
-      id="logo"
-      src="https://www.kissfm.ua/static/img/kissfm_bigger_logo_top.png"
-    />
-    <div class="outter-box">
-      <div class="box">
+    <div class="box">
+      <img
+        id="logo"
+        src="https://www.kissfm.ua/static/img/kissfm_bigger_logo_top.png"
+      />
+      <div
+        class="loading"
+        style="margin: 0 auto; padding-top: 4rem"
+      >
         <h1>Loading...</h1>
         <img
           id="spinner"
           src="https://acegif.com/wp-content/uploads/loading-32.gif"
         />
       </div>
-      <span class="control-icon"><i class="far fa-play-circle"></i></span>
-      <img id="cat" src="./assets/catsleepkiss.gif" />
-      <img src="./assets/eq.gif" id="equ" />
+      <div class="song">
+        <h2>Now playing:</h2>
+        <h1 id="song">dfddffd</h1>
+        <h3 id="singer">dfdfdd</h3>
+        <a
+          href="#"
+          target="_blank"
+          class="videoLink"
+        >
+          <img
+            id="songImg"
+            src="https://i.ytimg.com/vi/AgZfkhM-Oxk/hqdefault.jpg"
+          />
+        </a>
+
+        <a
+          class="videoLinkBox"
+          href="${data.videoLink}"
+          target="_blank"
+        >
+          YouTube Link to Video
+          <img
+            src="./assets/youtubeBtn.png"
+            id="youtube-icon"
+        /></a>
+      </div>
+      <div class="controls">
+        <div class="buttons">
+          <span class="control-icon"><i class="far fa-play-circle"></i></span>
+          <img
+            src="./assets/eq.gif"
+            id="equ"
+          />
+        </div>
+        <img
+          id="cat"
+          src="./assets/catsleepkiss.gif"
+        />
+      </div>
     </div>
+
     <script src="app.js"></script>
   </body>
 </html>
