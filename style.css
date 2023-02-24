@@ -172,6 +172,22 @@ body {
   transform: rotate(5deg);
 }
 
+.favBox {
+  margin: 1rem;
+  border: 5px solid white;
+  padding: 1rem;
+}
+
+.favItem {
+  margin: 0.5rem auto;
+}
+
+.favItem img {
+  margin-top: 0.25rem;
+  width: 100px;
+  border-radius: 20px;
+}
+
 @media screen and (max-width: 768px) {
   body {
     padding-top: 40px;

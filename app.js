@@ -7,12 +7,59 @@ const a = document.querySelector("a");
 const controlIcon = document.querySelector(".control-icon");
 const videoLink = document.querySelector(".videoLink");
 const videoLinkBox = document.querySelector(".videoLinkBox");
+const favBtn = document.querySelector("#favBtn");
+const favBox = document.querySelector(".favBox");
+
+const setFavBox = () => {
+  const favs = JSON.parse(localStorage.getItem("favlist"));
+  favs === null
+    ? (favBox.innerHTML = `<h1>No Favs</h1>`)
+    : favs.map((item, index) => {
+        favBox.innerHTML += `
+        <div class="favItem" data-info=${index}>
+        <p>${item.song} - ${item.singer}</p>
+        <img src=${item.thumbnail} width="200px" />
+        </div>
+    `;
+      });
+  const favItem = document.querySelectorAll(".favItem");
+  [...favItem].forEach((item) => {
+    item.addEventListener("click", () => {
+      console.log(item.dataset.info);
+      const filteredArr = [...favItem].filter(
+        (s) => s.dataset.info !== item.dataset.info,
+      );
+      console.log(filteredArr);
+      localStorage.setItem("favlist", JSON.stringify([...favItem]));
+
+      // console.log([...favItem].slice(+item.dataset.info));
+    });
+  });
+};
+
+setFavBox();
+let info;
+favBtn.addEventListener("click", () => {
+  console.log(info);
+  const tmp = JSON.parse(localStorage.getItem("favlist"));
+  console.log(tmp);
+  const indexFav =
+    tmp !== null ? tmp.findIndex((item) => item.title === info.title) : -2;
+  if (indexFav === -1 && tmp !== null) {
+    localStorage.setItem("favlist", JSON.stringify([...tmp, info]));
+  } else if (indexFav === -2 && tmp === null) {
+    localStorage.setItem("favlist", JSON.stringify([info]));
+  }
+  setFavBox();
+});
 
 const getSong = async () => {
-  console.log(videoLink);
+  // console.log(videoLink);
   const res = await fetch("https://burgundy-wildebeest-toga.cyclic.app/kissfm");
   const data = await res.json();
-  console.log(data);
+  // console.log(data);
+  info = data;
+
   loading.style.display = "none";
   song.style.display = "block";
   _song.innerHTML = data.song;
