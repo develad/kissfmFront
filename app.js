@@ -9,6 +9,8 @@ const videoLink = document.querySelector(".videoLink");
 const videoLinkBox = document.querySelector(".videoLinkBox");
 const favBtn = document.querySelector("#favBtn");
 const favBox = document.querySelector(".favBox");
+const randomSongs = document.querySelector(".randomSongs");
+const randomBtn = document.querySelector("#randomBtn");
 
 // const setFavBox = () => {
 //   const favs = JSON.parse(localStorage.getItem("favlist"));
@@ -101,21 +103,21 @@ const getSong = async () => {
   a.innerHTML = `<img id="songImg" src="${data.thumbnail}" />`;
 
   videoLinkBox.href = data.videoLink;
-  if (data.videoLink !== "#") {
-    const videoLinkBox = document.querySelector(".videoLinkBox");
-    videoLink.addEventListener("click", () => {
-      if (isPlaying === true) {
-        radio.pause();
-        isPlaying = !isPlaying;
-        controlIcon.innerHTML = `<i class="far fa-play-circle" id="stop"></i>`;
-        controlIcon.classList.add("spin");
-        equ.style.display = "none";
-        setTimeout(() => {
-          controlIcon.classList.remove("spin");
-        }, 500);
-      }
-    });
-  }
+  // if (data.videoLink !== "#") {
+  //   const videoLinkBox = document.querySelector(".videoLinkBox");
+  //   videoLink.addEventListener("click", () => {
+  //     if (isPlaying === true) {
+  //       radio.pause();
+  //       isPlaying = !isPlaying;
+  //       controlIcon.innerHTML = `<i class="far fa-play-circle" id="stop"></i>`;
+  //       controlIcon.classList.add("spin");
+  //       equ.style.display = "none";
+  //       setTimeout(() => {
+  //         controlIcon.classList.remove("spin");
+  //       }, 500);
+  //     }
+  //   });
+  // }
 };
 
 getSong();
@@ -146,3 +148,28 @@ controlIcon.addEventListener("click", () => {
     }, 500);
   }
 });
+
+const getRandomSongs = async () => {
+  // console.log(videoLink);
+  const res = await fetch(
+    "https://burgundy-wildebeest-toga.cyclic.app/kissfmRandomSongs",
+  );
+  const data = await res.json();
+  console.log(data);
+  randomSongs.innerHTML = "";
+  data.randomSongs.map(
+    (item) =>
+      (randomSongs.innerHTML += `
+    <div class="favItem">
+      <p>${item.song}</p>
+      <p>${item.singer}</p>
+      <img src="${item.thumbnail}"/>
+      <a href="${item.videoLink}" target="_blank"><p><span><i class="fab fa-youtube"></i></i></span>YouTube Link<p/></a>
+    </div>
+  `),
+  );
+};
+
+getRandomSongs();
+
+randomBtn.addEventListener("click", getRandomSongs);

@@ -42,8 +42,8 @@ body {
   box-shadow: 5px -5px greenyellow;
   justify-content: space-between;
   position: relative;
-  /* height: 682px; */
-  transform: scale(0.9);
+  /* height: 78vh; */
+  /* transform: scale(0.88); */
 }
 .box h2 {
   padding-bottom: 0.5rem;
@@ -58,16 +58,29 @@ body {
   text-align: center;
 }
 
-.box button {
-  margin-top: 0.25rem;
-  background: transparent;
-  color: inherit;
+#randomBtn span,
+.box button span {
+  font-size: 1.4rem;
+  margin-right: 0.5rem;
+}
+
+.box button,
+#randomBtn {
+  margin-top: 2rem;
+  background: #143e27;
+
+  color: white;
   font-family: inherit;
-  font-size: 0.8rem;
-  padding: 1rem;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
   border: 5px solid white;
   border-radius: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* font-weight: 800; */
 }
 
 #logo {
@@ -205,6 +218,7 @@ body {
   box-shadow: 5px -5px greenyellow;
   border-radius: 25px;
   backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.549);
 }
 .fav-wrapper > h1 {
   text-align: center;
@@ -218,10 +232,10 @@ body {
   /* padding: 1rem; */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  max-height: 70vh;
+  height: 70vh;
   overflow-y: scroll;
   overflow-x: hidden;
-  width: 600px;
+  width: 500px;
 }
 
 .favItem {
@@ -231,10 +245,11 @@ body {
   width: 100%;
   border-left: 5px solid white;
   padding-left: 0.5rem;
+  height: fit-content;
 }
 
 .favItem p {
-  width: 25ch;
+  width: 17ch;
 }
 
 .favItem > p:nth-child(1) {
@@ -254,6 +269,11 @@ body {
 .favItem span {
   margin-right: 0.5rem;
   color: #f70000;
+}
+
+.space {
+  padding: 1rem;
+  /* height: 80vh; */
 }
 
 @media screen and (max-width: 768px) {
