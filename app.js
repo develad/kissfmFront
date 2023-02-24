@@ -10,48 +10,81 @@ const videoLinkBox = document.querySelector(".videoLinkBox");
 const favBtn = document.querySelector("#favBtn");
 const favBox = document.querySelector(".favBox");
 
-const setFavBox = () => {
-  const favs = JSON.parse(localStorage.getItem("favlist"));
-  favs === null
-    ? (favBox.innerHTML = `<h1>No Favs</h1>`)
-    : favs.map((item, index) => {
-        favBox.innerHTML += `
-        <div class="favItem" data-info=${index}>
-        <p>${item.song} - ${item.singer}</p>
-        <img src=${item.thumbnail} width="200px" />
-        </div>
-    `;
-      });
-  const favItem = document.querySelectorAll(".favItem");
-  [...favItem].forEach((item) => {
-    item.addEventListener("click", () => {
-      console.log(item.dataset.info);
-      const filteredArr = [...favItem].filter(
-        (s) => s.dataset.info !== item.dataset.info,
-      );
-      console.log(filteredArr);
-      localStorage.setItem("favlist", JSON.stringify([...favItem]));
+// const setFavBox = () => {
+//   const favs = JSON.parse(localStorage.getItem("favlist"));
+//   favs === null
+//     ? (favBox.innerHTML = `<h1>No Favs</h1>`)
+//     : favs.map((item, index) => {
+//         favBox.innerHTML += `
+//         <div class="favItem" data-info=${index}>
+//         <p>${item.song} - ${item.singer}</p>
+//         <img src=${item.thumbnail} width="200px" />
+//         </div>
+//     `;
+//       });
+//   const favItem = document.querySelectorAll(".favItem");
+//   [...favItem].forEach((item) => {
+//     item.addEventListener("click", () => {
+//       console.log(item.dataset.info);
+//       const filteredArr = [...favItem].filter(
+//         (s) => s.dataset.info !== item.dataset.info,
+//       );
+//       console.log(filteredArr);
+//       localStorage.setItem("favlist", JSON.stringify([...filteredArr]));
 
-      // console.log([...favItem].slice(+item.dataset.info));
-    });
-  });
-};
+//       // console.log([...favItem].slice(+item.dataset.info));
+//     });
+//   });
+// };
 
-setFavBox();
+// setFavBox();
+
 let info;
 favBtn.addEventListener("click", () => {
-  console.log(info);
+  // console.log(info);
   const tmp = JSON.parse(localStorage.getItem("favlist"));
-  console.log(tmp);
+  // console.log(tmp);
   const indexFav =
     tmp !== null ? tmp.findIndex((item) => item.title === info.title) : -2;
   if (indexFav === -1 && tmp !== null) {
+    favBtn.innerHTML = "Added !";
     localStorage.setItem("favlist", JSON.stringify([...tmp, info]));
+    setTimeout(() => {
+      favBtn.innerHTML = "Add to Favorite";
+    }, 1000);
   } else if (indexFav === -2 && tmp === null) {
+    favBtn.innerHTML = "Added !";
     localStorage.setItem("favlist", JSON.stringify([info]));
+    setTimeout(() => {
+      favBtn.innerHTML = "Add to Favorite";
+    }, 1000);
   }
-  setFavBox();
+
+  renderFavs();
 });
+
+const renderFavs = () => {
+  favBox.innerHTML = "";
+  const favlist = JSON.parse(localStorage.getItem("favlist"));
+  console.log(favlist);
+  if (favlist) {
+    favlist.reverse().map(
+      (item) =>
+        (favBox.innerHTML += `
+      <div class="favItem">
+        <p>${item.song}</p>
+        <p>${item.singer}</p>
+        <img src="${item.thumbnail}"/>
+        <a href="${item.videoLink}" target="_blank"><p><span><i class="fab fa-youtube"></i></i></span>YouTube Link<p/></a>
+      </div>
+    `),
+    );
+  } else {
+    favBox.innerHTML = `<h1>No fav songs</h1>`;
+  }
+};
+
+renderFavs();
 
 const getSong = async () => {
   // console.log(videoLink);
