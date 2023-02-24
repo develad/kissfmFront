@@ -278,13 +278,24 @@ body {
 
 @media screen and (max-width: 768px) {
   body {
-    padding-top: 40px;
+    /* padding-top: 40px; */
     -webkit-tap-highlight-color: transparent;
+    flex-direction: column-reverse;
   }
   .box {
-    margin: 1rem;
+    margin: 2rem 1rem 1rem 1rem;
     width: auto;
     padding: 30px;
+    order: 1;
+  }
+
+  .fav-wrapper {
+    width: calc(100% - 2rem);
+    margin: 1rem;
+  }
+  .favBox {
+    grid-template-columns: repeat(1, 1fr);
+    width: 250px;
   }
   /* .control-icon {
     bottom: 40px;
