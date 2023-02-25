@@ -82,7 +82,7 @@ const renderFavs = () => {
     `),
     );
   } else {
-    favBox.innerHTML = `<h1>No fav songs</h1>`;
+    favBox.innerHTML = `<h1 style="grid-column: 1 / -1;text-align: center;">Empty list</h1>`;
   }
 };
 

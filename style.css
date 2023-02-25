@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;800&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -28,14 +30,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  font-family: sans-serif;
+  font-family: "Kanit", sans-serif;
 }
 .box {
   display: flex;
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.549);
   width: 500px;
-  padding: 50px;
+  padding: 20px;
   border-radius: 25px;
   backdrop-filter: blur(4px);
   border: 5px solid white;
@@ -67,7 +69,7 @@ body {
 .box button,
 #randomBtn {
   margin-top: 2rem;
-  background: #143e27;
+  background: #00b853;
 
   color: white;
   font-family: inherit;
@@ -219,6 +221,11 @@ body {
   border-radius: 25px;
   backdrop-filter: blur(4px);
   background-color: rgba(0, 0, 0, 0.549);
+  height: 70vh;
+  /* overflow-y: scroll;
+  overflow-x: hidden; */
+  padding: 1rem;
+  position: relative;
 }
 .fav-wrapper > h1 {
   text-align: center;
@@ -232,10 +239,10 @@ body {
   /* padding: 1rem; */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  height: 70vh;
+  height: 80%;
   overflow-y: scroll;
   overflow-x: hidden;
-  width: 500px;
+  /* width: 500px; */
 }
 
 .favItem {
@@ -273,8 +280,29 @@ body {
 
 .space {
   padding: 1rem;
-  /* height: 80vh; */
+  /* height: 65vh; */
 }
+
+.space h1 {
+  margin-bottom: 1rem;
+}
+
+.randomSongs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+#randomBtn {
+  margin: 2rem auto;
+  width: 80%;
+}
+
+/* .space-items{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+} */
 
 @media screen and (max-width: 768px) {
   body {
@@ -293,9 +321,16 @@ body {
     width: calc(100% - 2rem);
     margin: 1rem;
   }
-  .favBox {
+  .favBox,
+  .randomSongs {
     grid-template-columns: repeat(1, 1fr);
     width: 250px;
+  }
+
+  .randomSongs {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 65%;
   }
   /* .control-icon {
     bottom: 40px;
