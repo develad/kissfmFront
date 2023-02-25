@@ -2,7 +2,7 @@ const box = document.querySelector(".box");
 const song = document.querySelector(".song");
 const _song = document.querySelector("#song");
 const _singer = document.querySelector("#singer");
-const loading = document.querySelector(".loading");
+const loading = document.querySelectorAll(".loading");
 const a = document.querySelector("a");
 const controlIcon = document.querySelector(".control-icon");
 const videoLink = document.querySelector(".videoLink");
@@ -12,6 +12,7 @@ const favBox = document.querySelector(".favBox");
 const randomSongs = document.querySelector(".randomSongs");
 const randomBtn = document.querySelector("#randomBtn");
 
+// console.log(loading);
 // const setFavBox = () => {
 //   const favs = JSON.parse(localStorage.getItem("favlist"));
 //   favs === null
@@ -68,7 +69,7 @@ favBtn.addEventListener("click", () => {
 const renderFavs = () => {
   favBox.innerHTML = "";
   const favlist = JSON.parse(localStorage.getItem("favlist"));
-  console.log(favlist);
+  // console.log(favlist);
   if (favlist) {
     favlist.reverse().map(
       (item) =>
@@ -95,12 +96,14 @@ const getSong = async () => {
   // console.log(data);
   info = data;
 
-  loading.style.display = "none";
+  // loading.forEach((loading) => (loading.style.display = "none"));
+  loading[1].style.display = "none";
   song.style.display = "block";
   _song.innerHTML = data.song;
   _singer.innerHTML = data.singer;
   a.style.filter = "none";
   a.innerHTML = `<img id="songImg" src="${data.thumbnail}" />`;
+  a.href = data.videoLink;
 
   videoLinkBox.href = data.videoLink;
   // if (data.videoLink !== "#") {
@@ -155,8 +158,10 @@ const getRandomSongs = async () => {
     "https://burgundy-wildebeest-toga.cyclic.app/kissfmRandomSongs",
   );
   const data = await res.json();
-  console.log(data);
+  // console.log(data);
   randomSongs.innerHTML = "";
+  loading[0].style.display = "none";
+  randomSongs.classList.remove("loading-random");
   data.randomSongs.map(
     (item) =>
       (randomSongs.innerHTML += `

@@ -31,7 +31,18 @@
   <body>
     <div class="fav-wrapper space">
       <h1>Trending Hits</h1>
-      <div class="randomSongs"></div>
+      <div class="randomSongs loading-random">
+        <div
+          class="loading"
+          style="margin: 0 auto; padding-top: 4rem"
+        >
+          <h1>Loading...</h1>
+          <img
+            id="spinner"
+            src="https://acegif.com/wp-content/uploads/loading-32.gif"
+          />
+        </div>
+      </div>
       <button
         id="randomBtn"
         type="button"
@@ -56,8 +67,8 @@
       </div>
       <div class="song">
         <h2>Now playing:</h2>
-        <h1 id="song">dfddffd</h1>
-        <h3 id="singer">dfdfdd</h3>
+        <h1 id="song"></h1>
+        <h3 id="singer"></h3>
         <a
           href="#"
           target="_blank"
@@ -65,13 +76,13 @@
         >
           <img
             id="songImg"
-            src="https://i.ytimg.com/vi/AgZfkhM-Oxk/hqdefault.jpg"
+            src="#"
           />
         </a>
 
         <a
           class="videoLinkBox"
-          href="${data.videoLink}"
+          href="#"
           target="_blank"
         >
           YouTube Link to Video
