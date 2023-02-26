@@ -338,6 +338,8 @@ body {
   .fav-wrapper {
     width: calc(100% - 2rem);
     margin: 1rem;
+    min-width: auto;
+    padding: 0;
   }
   .favBox,
   .randomSongs {
@@ -349,6 +351,10 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
     height: 65%;
+  }
+
+  .space {
+    padding: 1rem;
   }
   /* .control-icon {
     bottom: 40px;

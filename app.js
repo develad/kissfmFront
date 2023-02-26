@@ -57,6 +57,7 @@ favBtn.addEventListener("click", () => {
       favBtn.style.background = "#00b853";
       favBtn.innerHTML = `<span><i class="fas fa-heart"></i></span>Add to Favorite`;
     }, 1000);
+    renderFavs();
   } else if (indexFav === -2 && tmp === null) {
     favBtn.style.background = "#ee465f";
     favBtn.innerHTML = `<span style="margin-right: 0.5rem;"><i class="fas fa-save"></i></span>Added`;
@@ -65,15 +66,24 @@ favBtn.addEventListener("click", () => {
       favBtn.style.background = "#00b853";
       favBtn.innerHTML = `<span><i class="fas fa-heart"></i></span> Add to Favorite`;
     }, 2000);
-  }
+    renderFavs();
+  } else {
+    favBtn.style.background = "#f5dd53";
+    favBtn.style.color = "black";
+    favBtn.innerHTML = `<span style="margin-right: 0.5rem;"><i class="fas fa-exclamation-triangle"></i></span>Already in Favorite`;
 
-  renderFavs();
+    setTimeout(() => {
+      favBtn.style.background = "#00b853";
+      favBtn.style.color = "white";
+      favBtn.innerHTML = `<span><i class="fas fa-heart"></i></span> Add to Favorite`;
+    }, 2000);
+  }
 });
 
 const renderFavs = () => {
   favBox.innerHTML = "";
   const favlist = JSON.parse(localStorage.getItem("favlist"));
-  console.log(favlist);
+  // console.log(favlist);
   if (favlist !== null && favlist.length !== 0) {
     favlist.reverse().map(
       (item, index) =>
