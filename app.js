@@ -105,6 +105,7 @@ const renderFavs = () => {
         ) {
           const itemIndex = +item.dataset.id;
           favlist.splice(itemIndex, 1);
+          favlist.reverse();
           localStorage.setItem("favlist", JSON.stringify([...favlist]));
           renderFavs();
         }
