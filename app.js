@@ -50,17 +50,21 @@ favBtn.addEventListener("click", () => {
   const indexFav =
     tmp !== null ? tmp.findIndex((item) => item.title === info.title) : -2;
   if (indexFav === -1 && tmp !== null) {
-    favBtn.innerHTML = "Added !";
+    favBtn.style.background = "#ee465f";
+    favBtn.innerHTML = `<span style="margin-right: 0.5rem;"><i class="fas fa-save"></i></span>Added`;
     localStorage.setItem("favlist", JSON.stringify([...tmp, info]));
     setTimeout(() => {
-      favBtn.innerHTML = "Add to Favorite";
+      favBtn.style.background = "#00b853";
+      favBtn.innerHTML = `<span><i class="fas fa-heart"></i></span>Add to Favorite`;
     }, 1000);
   } else if (indexFav === -2 && tmp === null) {
-    favBtn.innerHTML = "Added !";
+    favBtn.style.background = "#ee465f";
+    favBtn.innerHTML = `<span style="margin-right: 0.5rem;"><i class="fas fa-save"></i></span>Added`;
     localStorage.setItem("favlist", JSON.stringify([info]));
     setTimeout(() => {
-      favBtn.innerHTML = "Add to Favorite";
-    }, 1000);
+      favBtn.style.background = "#00b853";
+      favBtn.innerHTML = `<span><i class="fas fa-heart"></i></span> Add to Favorite`;
+    }, 2000);
   }
 
   renderFavs();
