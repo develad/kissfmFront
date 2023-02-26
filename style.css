@@ -227,6 +227,7 @@ body {
   overflow-x: hidden; */
   padding: 1rem;
   position: relative;
+  min-width: 514px;
 }
 .fav-wrapper > h1 {
   text-align: center;
@@ -311,6 +312,16 @@ body {
   text-align: center;
 }
 
+.deleteBtn {
+  width: fit-content;
+  cursor: pointer;
+}
+
+.deleteBtn span {
+  color: white;
+  margin-right: 0.5rem;
+}
+
 @media screen and (max-width: 768px) {
   body {
     /* padding-top: 40px; */
@@ -331,7 +342,7 @@ body {
   .favBox,
   .randomSongs {
     grid-template-columns: repeat(1, 1fr);
-    width: 250px;
+    /* width: 250px; */
   }
 
   .randomSongs {

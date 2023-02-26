@@ -73,21 +73,35 @@ favBtn.addEventListener("click", () => {
 const renderFavs = () => {
   favBox.innerHTML = "";
   const favlist = JSON.parse(localStorage.getItem("favlist"));
-  // console.log(favlist);
-  if (favlist) {
+  console.log(favlist);
+  if (favlist !== null && favlist.length !== 0) {
     favlist.reverse().map(
-      (item) =>
+      (item, index) =>
         (favBox.innerHTML += `
       <div class="favItem">
         <p>${item.song}</p>
         <p>${item.singer}</p>
         <img src="${item.thumbnail}"/>
-        <a href="${item.videoLink}" target="_blank"><p><span><i class="fab fa-youtube"></i></i></span>YouTube Link<p/></a>
-      </div>
+        <a href="${item.videoLink}" target="_blank"><p><span><i class="fab fa-youtube"></i></span>YouTube Link<p/></a>
+        <div class="deleteBtn" data-id="${index}"><span><i class="fas fa-trash"></i></span>Delete</div>
+        </div>
     `),
     );
+    let favItems = document.querySelectorAll(".deleteBtn");
+    favItems.forEach((item) =>
+      item.addEventListener("click", () => {
+        if (
+          window.confirm("Are you sure you want to Delete from favorite songs?")
+        ) {
+          const itemIndex = +item.dataset.id;
+          favlist.splice(itemIndex, 1);
+          localStorage.setItem("favlist", JSON.stringify([...favlist]));
+          renderFavs();
+        }
+      }),
+    );
   } else {
-    favBox.innerHTML = `<h1 style="grid-column: 1 / -1;text-align: center;">Empty list</h1>`;
+    favBox.innerHTML = `<h1 style="grid-column: 1 / -1;text-align: center;">Empty list <span><i class="fas fa-paw"></i></span></h1>`;
   }
 };
 
@@ -164,7 +178,7 @@ const getRandomSongs = async () => {
   const data = await res.json();
   // console.log(data);
   randomSongs.innerHTML = "";
-  loading[0].style.display = "none";
+  // loading[0].style.display = "none";
   randomSongs.classList.remove("loading-random");
   data.randomSongs.map(
     (item) =>
@@ -182,3 +196,10 @@ const getRandomSongs = async () => {
 getRandomSongs();
 
 randomBtn.addEventListener("click", getRandomSongs);
+
+// const deleteFav = () => {
+//   favItems = [...favItems];
+//   console.log(favItems);
+// };
+
+// deleteFav();
