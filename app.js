@@ -12,7 +12,6 @@ const favBox = document.querySelector(".favBox");
 const randomSongs = document.querySelector(".randomSongs");
 const randomBtn = document.querySelector("#randomBtn");
 
-// console.log(loading);
 // const setFavBox = () => {
 //   const favs = JSON.parse(localStorage.getItem("favlist"));
 //   favs === null
@@ -44,9 +43,7 @@ const randomBtn = document.querySelector("#randomBtn");
 
 let info;
 favBtn.addEventListener("click", () => {
-  // console.log(info);
   const tmp = JSON.parse(localStorage.getItem("favlist"));
-  // console.log(tmp);
   const indexFav =
     tmp !== null ? tmp.findIndex((item) => item.title === info.title) : -2;
   if (indexFav === -1 && tmp !== null) {
@@ -83,7 +80,6 @@ favBtn.addEventListener("click", () => {
 const renderFavs = () => {
   favBox.innerHTML = "";
   const favlist = JSON.parse(localStorage.getItem("favlist"));
-  // console.log(favlist);
   if (favlist !== null && favlist.length !== 0) {
     favlist.reverse().map(
       (item, index) =>
@@ -119,13 +115,9 @@ const renderFavs = () => {
 renderFavs();
 
 const getSong = async () => {
-  // console.log(videoLink);
   const res = await fetch("https://burgundy-wildebeest-toga.cyclic.app/kissfm");
   const data = await res.json();
-  // console.log(data);
   info = data;
-
-  // loading.forEach((loading) => (loading.style.display = "none"));
   loading[1].style.display = "none";
   song.style.display = "block";
   _song.innerHTML = data.song;
@@ -133,23 +125,7 @@ const getSong = async () => {
   a.style.filter = "none";
   a.innerHTML = `<img id="songImg" src="${data.thumbnail}" />`;
   a.href = data.videoLink;
-
   videoLinkBox.href = data.videoLink;
-  // if (data.videoLink !== "#") {
-  //   const videoLinkBox = document.querySelector(".videoLinkBox");
-  //   videoLink.addEventListener("click", () => {
-  //     if (isPlaying === true) {
-  //       radio.pause();
-  //       isPlaying = !isPlaying;
-  //       controlIcon.innerHTML = `<i class="far fa-play-circle" id="stop"></i>`;
-  //       controlIcon.classList.add("spin");
-  //       equ.style.display = "none";
-  //       setTimeout(() => {
-  //         controlIcon.classList.remove("spin");
-  //       }, 500);
-  //     }
-  //   });
-  // }
 };
 
 getSong();
@@ -182,14 +158,11 @@ controlIcon.addEventListener("click", () => {
 });
 
 const getRandomSongs = async () => {
-  // console.log(videoLink);
   const res = await fetch(
     "https://burgundy-wildebeest-toga.cyclic.app/kissfmRandomSongs",
   );
   const data = await res.json();
-  // console.log(data);
   randomSongs.innerHTML = "";
-  // loading[0].style.display = "none";
   randomSongs.classList.remove("loading-random");
   randomSongs.classList.remove("offset");
   data.randomSongs.map(
@@ -208,10 +181,3 @@ const getRandomSongs = async () => {
 getRandomSongs();
 
 randomBtn.addEventListener("click", getRandomSongs);
-
-// const deleteFav = () => {
-//   favItems = [...favItems];
-//   console.log(favItems);
-// };
-
-// deleteFav();
