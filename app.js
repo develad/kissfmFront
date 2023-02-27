@@ -191,6 +191,7 @@ const getRandomSongs = async () => {
   randomSongs.innerHTML = "";
   // loading[0].style.display = "none";
   randomSongs.classList.remove("loading-random");
+  randomSongs.classList.remove("offset");
   data.randomSongs.map(
     (item) =>
       (randomSongs.innerHTML += `

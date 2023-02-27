@@ -327,7 +327,15 @@ body {
     /* padding-top: 40px; */
     -webkit-tap-highlight-color: transparent;
     flex-direction: column-reverse;
+    background: linear-gradient(
+      to top,
+      #6a9113,
+      #141517
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    background-attachment: fixed;
   }
+
   .box {
     margin: 2rem 1rem 1rem 1rem;
     width: calc(100% - 2rem);
@@ -373,6 +381,10 @@ body {
   .song img {
     height: auto;
   }
+}
+
+.offset {
+  width: auto;
 }
 /* 
 @media screen and (max-width: 355px) {
