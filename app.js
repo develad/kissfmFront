@@ -12,35 +12,6 @@ const favBox = document.querySelector(".favBox");
 const randomSongs = document.querySelector(".randomSongs");
 const randomBtn = document.querySelector("#randomBtn");
 
-// const setFavBox = () => {
-//   const favs = JSON.parse(localStorage.getItem("favlist"));
-//   favs === null
-//     ? (favBox.innerHTML = `<h1>No Favs</h1>`)
-//     : favs.map((item, index) => {
-//         favBox.innerHTML += `
-//         <div class="favItem" data-info=${index}>
-//         <p>${item.song} - ${item.singer}</p>
-//         <img src=${item.thumbnail} width="200px" />
-//         </div>
-//     `;
-//       });
-//   const favItem = document.querySelectorAll(".favItem");
-//   [...favItem].forEach((item) => {
-//     item.addEventListener("click", () => {
-//       console.log(item.dataset.info);
-//       const filteredArr = [...favItem].filter(
-//         (s) => s.dataset.info !== item.dataset.info,
-//       );
-//       console.log(filteredArr);
-//       localStorage.setItem("favlist", JSON.stringify([...filteredArr]));
-
-//       // console.log([...favItem].slice(+item.dataset.info));
-//     });
-//   });
-// };
-
-// setFavBox();
-
 let info;
 favBtn.addEventListener("click", () => {
   const tmp = JSON.parse(localStorage.getItem("favlist"));
