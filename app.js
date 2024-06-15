@@ -86,7 +86,7 @@ const renderFavs = () => {
 renderFavs();
 
 const getSong = async () => {
-  const res = await fetch("https://burgundy-wildebeest-toga.cyclic.app/kissfm");
+  const res = await fetch("https://express-gcloud-424017.oa.r.appspot.com/kissfm");
   const data = await res.json();
   info = data;
   loading[1].style.display = "none";
@@ -130,7 +130,7 @@ controlIcon.addEventListener("click", () => {
 
 const getRandomSongs = async () => {
   const res = await fetch(
-    "https://burgundy-wildebeest-toga.cyclic.app/kissfmRandomSongs",
+    "https://express-gcloud-424017.oa.r.appspot.com/kissfmRandomSongs",
   );
   const data = await res.json();
   randomSongs.innerHTML = "";
